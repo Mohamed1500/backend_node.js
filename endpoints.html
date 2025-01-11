@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    h3 {
+      color: #555;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #c7254e;
+    }
+    .voorbeeld {
+      margin-top: 10px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-left: 4px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Documentation</h1>
+  <p>Welkom op de api documentatie. Hier kan je de details zien over de endpoints en hoe je ze moet gebruiken.</p>
+
+  <h2>Endpoints</h2>
+
+  <h3>GET /api/users</h3>
+  <p>Haal een lijst van users met optionele filters en pagination.</p>
+  <ul>
+    <li><strong>page</strong> (integer, optioneel): Aantal page voor pagination (default: 1).</li>
+    <li><strong>limit</strong> (integer, optioneel): Aantal users per page (default: 10).</li>
+    <li><strong>name</strong> (string, optioneel): Filter users per name.</li>
+    <li><strong>age</strong> (integer, optioneel): Filter users per age.</li>
+  </ul>
+  <div class="voorbeeld">
+    Vb: <code>GET http://localhost:3000/api/users?page=2&limit=5</code>
+  </div>
+
+  <h3>POST /api/users</h3>
+  <p>Maak een nieuw user door de volgende informatie in de request body te sturen:</p>
+  <ul>
+    <li><strong>firstName</strong> (string, vereist):De user's voornaam.</li>
+    <li><strong>name</strong> (string, vereist): De user's achternaam.</li>
+    <li><strong>age</strong> (integer, vereist): De user's leeftijd.</li>
+    <li><strong>email</strong> (string, vereist): De user's email. </li>
+    <li><strong>password</strong> (string, vereist): De user's wachtwoord.</li>
+  </ul>
+  <div class="voorbeeld">
+    Vb: <code>POST http://localhost:3000/api/users</code>
+  </div>
+
+  <h3>PUT /api/users/:id</h3>
+  <p>Update een bestaande user per ID. Stuur de updated informatie in de request body:</p>
+  <ul>
+    <li><strong>firstName</strong> (string, optioneel): De user's voornaam.</li>
+    <li><strong>name</strong> (string, optioneel): De user's achternaam.</li>
+    <li><strong>age</strong> (integer, optioneel): De user's leeftijd.</li>
+    <li><strong>email</strong> (string, optioneel): De user's email.</li>
+    <li><strong>password</strong> (string, optioneel): De user's wachtwoord.</li>
+  </ul>
+  <div class="voorbeeld">
+    Vb: <code>PUT http://localhost:3000/api/users/1</code>
+  </div>
+
+  <h3>DELETE /api/users/:id</h3>
+  <p>Delete a user by ID.</p>
+  <div class="voorbeeld">
+    Vb: <code>DELETE http://localhost:3000/api/users/1</code>
+  </div>
+</body>
+</html>
